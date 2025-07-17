@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "478965066188",
+    "project_id": "planifa-31b48",
+    "storage_bucket": "planifa-31b48.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478965066188:android:937d4d160fb3f3569e1569",
+        "android_client_info": {
+          "package_name": "com.example.cartedepresentation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyeSZGyRusA9h2uDzdxWvVDU_71Sa7qrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

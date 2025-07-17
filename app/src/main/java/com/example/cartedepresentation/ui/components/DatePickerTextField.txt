@@ -1,0 +1,87 @@
+package com.example.cartedepresentation.ui.components
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import java.text.SimpleDateFormat
+import java.util.*
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DatePickerTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    modifier: Modifier = Modifier,
+    dateFormat: String = "yyyy-MM-dd"
+) {
+    var showPicker by remember { mutableStateOf(false) }
+
+    val dateFormatter = remember(dateFormat) {
+        SimpleDateFormat(dateFormat, Locale.getDefault())
+    }
+
+    var selectedDateInMillis by remember { mutableStateOf(0L) }
+
+    // Affiche le champ texte cliquable
+    OutlinedTextField(
+        value = value,
+        onValueChange = {},
+        readOnly = true,
+        label = { Text(label) },
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable { showPicker = true }
+    )
+
+    // Affiche le calendrier Material 3
+    if (showPicker) {
+        Dialog(onDismissRequest = { showPicker = false }) {
+            Surface(
+                shape = MaterialTheme.shapes.medium,
+                tonalElevation = 8.dp
+            ) {
+                DatePicker(
+                    state = rememberDatePickerState(
+                        initialSelectedDateMillis = selectedDateInMillis.takeIf { it > 0L }
+                    ),
+                    showModeToggle = false
+                )
+
+                Spacer(modifier = Modifier)
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    TextButton(onClick = { showPicker = false }) {
+                        Text("Annuler")
+                    }
+                    TextButton(onClick = {
+                        val state = rememberDatePickerState()
+                        val date = state.selectedDateMillis
+                        if (date != null) {
+                            selectedDateInMillis = date
+                            val formatted = dateFormatter.format(Date(date))
+                            onValueChange(formatted)
+                        }
+                        showPicker = false
+                    }) {
+                        Text("OK")
+                    }
+                }
+            }
+        }
+    }
+}
