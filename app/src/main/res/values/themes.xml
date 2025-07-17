@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<<<<<<< HEAD
     <style name="Theme.CarteDePresentation" parent="android:Theme.Material.Light.NoActionBar" />
+=======
+    <style name="Theme.Planifa" parent="android:Theme.Material.Light.NoActionBar" />
+>>>>>>> c0bf7419bbb4cf659c123eb49f3de2938aab4afd
 </resources>

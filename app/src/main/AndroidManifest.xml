@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
@@ -26,3 +27,28 @@
     </application>
 
 </manifest>
+=======
+    package="com.example.planifa">
+
+    <application
+        android:allowBackup="true"
+        android:theme="@style/Theme.Planifa"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:label="Planifa">
+
+        <!-- Écran de connexion -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Autres activités ici -->
+
+    </application>
+</manifest>
+>>>>>>> c0bf7419bbb4cf659c123eb49f3de2938aab4afd

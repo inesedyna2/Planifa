@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Carte de presentation</string>
+=======
+    <string name="app_name">Planifa</string>
+>>>>>>> c0bf7419bbb4cf659c123eb49f3de2938aab4afd
 </resources>
